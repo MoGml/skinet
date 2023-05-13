@@ -1,3 +1,6 @@
+using API.Controllers;
+using Microsoft.AspNetCore.Mvc;
+
 namespace API
 {
     public class WeatherForecast

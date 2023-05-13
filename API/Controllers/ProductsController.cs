@@ -1,4 +1,5 @@
 ﻿using API.Dtos;
+using API.Error;
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
@@ -11,9 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ProductsController : ControllerBase
+    public class ProductsController : BaseController
     {
         private readonly IGenericRepository<Product> _productRepo;
 
@@ -56,6 +55,8 @@ namespace API.Controllers
         /// <param name="id">Product Id</param>
         /// <returns>Product Details</returns>
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status404NotFound)]
         public async Task<ActionResult<ProductReturnDto>> GetProduct(int id)
         {
             var spec = new ProductWithTypeAndBrandSpecification(id);
@@ -64,7 +65,7 @@ namespace API.Controllers
 
             if (product == null)
             {
-                return NotFound("Product is not Found");
+                return NotFound(new ApiResponse(404, "Product is not Found"));
             }
 
             return Ok(_map.Map<Product, ProductReturnDto>(product));
