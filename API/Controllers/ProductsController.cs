@@ -12,11 +12,20 @@ namespace API.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly IProductRepository _product;
+        private readonly IGenericRepository<Product> _productRepo;
 
-        public ProductsController(IProductRepository product)
+        private readonly IGenericRepository<ProductBrand> _brandRepo;
+
+        private readonly IGenericRepository<ProductType> _typeRepo;
+        //private readonly IProductRepository _product;
+
+        public ProductsController( /*IProductRepository product*/ IGenericRepository<Product> productRepo,
+            IGenericRepository<ProductBrand> brandRepo, IGenericRepository<ProductType> typeRepo)
         {
-            _product = product;
+            _productRepo = productRepo;
+            _brandRepo = brandRepo;
+            _typeRepo = typeRepo;
+            //_product = product;
         }
 
 
@@ -27,7 +36,7 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<List<Product>>> GetProducts()
         {
-            var products = await _product.GetProductsAsync();
+            var products = await _productRepo.GetListAsync();
 
             return Ok(products);
         }
@@ -41,7 +50,7 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            var product = await _product.GetProductAsync(id);
+            var product = await _productRepo.GetAsync(id);
 
             if (product == null)
             {
@@ -55,7 +64,7 @@ namespace API.Controllers
         [HttpGet("brands")]
         public async Task<ActionResult<IReadOnlyList<ProductBrand>>> GetBrands()
         {
-            var brands = await _product.GetProductBrandsAsync();
+            var brands = await _brandRepo.GetListAsync();
 
             return Ok(brands);
         }
@@ -63,7 +72,7 @@ namespace API.Controllers
         [HttpGet("types")]
         public async Task<ActionResult<IReadOnlyList<ProductType>>> GetTypes()
         {
-            var types = await _product.GetProductTypesAsync();
+            var types = await _typeRepo.GetListAsync();
 
             return Ok(types);
         }
