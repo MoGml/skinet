@@ -1,4 +1,6 @@
-﻿using Core.Entities;
+﻿using API.Dtos;
+using AutoMapper;
+using Core.Entities;
 using Core.Interfaces;
 using Core.Specification;
 using Infrastructure.Data;
@@ -18,14 +20,17 @@ namespace API.Controllers
         private readonly IGenericRepository<ProductBrand> _brandRepo;
 
         private readonly IGenericRepository<ProductType> _typeRepo;
+
+        private readonly IMapper _map;
         //private readonly IProductRepository _product;
 
         public ProductsController( /*IProductRepository product*/ IGenericRepository<Product> productRepo,
-            IGenericRepository<ProductBrand> brandRepo, IGenericRepository<ProductType> typeRepo)
+            IGenericRepository<ProductBrand> brandRepo, IGenericRepository<ProductType> typeRepo, IMapper map)
         {
             _productRepo = productRepo;
             _brandRepo = brandRepo;
             _typeRepo = typeRepo;
+            _map = map;
             //_product = product;
         }
 
@@ -35,13 +40,13 @@ namespace API.Controllers
         /// </summary>
         /// <returns>List of Products</returns>
         [HttpGet]
-        public async Task<ActionResult<List<Product>>> GetProducts()
+        public async Task<ActionResult<List<ProductReturnDto>>> GetProducts()
         {
             var spec = new ProductWithTypeAndBrandSpecification();
 
             var products = await _productRepo.GetAllWithSpecAsync(spec);
 
-            return Ok(products);
+            return Ok(_map.Map<IReadOnlyList<Product>, IReadOnlyList<ProductReturnDto>>(products));
         }
 
 
@@ -51,7 +56,7 @@ namespace API.Controllers
         /// <param name="id">Product Id</param>
         /// <returns>Product Details</returns>
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        public async Task<ActionResult<ProductReturnDto>> GetProduct(int id)
         {
             var spec = new ProductWithTypeAndBrandSpecification(id);
 
@@ -62,7 +67,7 @@ namespace API.Controllers
                 return NotFound("Product is not Found");
             }
 
-            return Ok(product);
+            return Ok(_map.Map<Product, ProductReturnDto>(product));
         }
 
 

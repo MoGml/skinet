@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "lhKK1zjtKcaY4yTldWXS9DAdjCoCjWiTlKuq6u/vcXWrNGsybgzsqPZs/SXhHNkqVkEpNzZNldXxpeC5GZrc4w==",
+  "dgSpecHash": "oJUzvoTBt5DkdWw8jMNxzLXQlo98JnMtngyDJuhf27D979SK7jk0byTXAHFDPb0c52bF/dQ3FOvLHhQbXP9WVA==",
   "success": true,
   "projectFilePath": "C:\\Learning\\.Net + Angular Project\\skinet\\API\\API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\GML\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\GML\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\GML\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
-    "C:\\Users\\GML\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\GML\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\GML\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\GML\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\GML\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.16\\microsoft.entityframeworkcore.6.0.16.nupkg.sha512",
