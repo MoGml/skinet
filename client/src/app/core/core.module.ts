@@ -8,6 +8,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ServerErrorComponent } from './server-error/server-error.component';
 
 import { ToastrModule } from 'ngx-toastr';
+import { BreadcrumbModule } from 'xng-breadcrumb';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ToastrModule } from 'ngx-toastr';
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
+    BreadcrumbModule,
+    NgxSpinnerModule,
   ],
-  exports: [NavBarComponent, SectionHeaderComponent],
+  exports: [NavBarComponent, SectionHeaderComponent, NgxSpinnerModule],
 })
 export class CoreModule {}

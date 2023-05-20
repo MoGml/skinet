@@ -1,15 +1,23 @@
-<div class="bg-light p-5">
-  <div class="container">
-    <div class="row d-flex align-items-center">
-      <div class="col-md-9"><h1>Title Header Here</h1></div>
-      <div class="col-md-3">
-        <nav>
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Library</li>
-          </ol>
-        </nav>
+<ng-container *ngIf="$any(bcService.breadcrumbs$ | async) as breadcrumbs">
+  <div
+    *ngIf="breadcrumbs[breadcrumbs.length - 1].label !== 'Home'"
+    class="bg-light p-5"
+  >
+    <div class="container">
+      <div class="row d-flex align-items-center">
+        <div class="col-md-9">
+          <h1>
+            {{ breadcrumbs[breadcrumbs.length - 1].label | titlecase }}
+          </h1>
+        </div>
+        <div class="col-md-3">
+          <xng-breadcrumb>
+            <ng-container *xngBreadcrumbItem="let breadcrumb">
+              {{ breadcrumb | titlecase }}
+            </ng-container>
+          </xng-breadcrumb>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</ng-container>
