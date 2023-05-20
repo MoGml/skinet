@@ -68,3 +68,5 @@ C:\Learning\.Net + Angular Project\skinet\API\bin\Debug\net6.0\Core.pdb
 C:\Learning\.Net + Angular Project\skinet\API\bin\Debug\net6.0\AutoMapper.dll
 C:\Learning\.Net + Angular Project\skinet\API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Learning\.Net + Angular Project\skinet\API\bin\Debug\net6.0\API.staticwebassets.runtime.json
+C:\Learning\.Net + Angular Project\skinet\API\bin\Debug\net6.0\Pipelines.Sockets.Unofficial.dll
+C:\Learning\.Net + Angular Project\skinet\API\bin\Debug\net6.0\StackExchange.Redis.dll
