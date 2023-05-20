@@ -1,0 +1,30 @@
+<div class="container" *ngIf="product">
+  <div class="row">
+    <div class="col-md-6">
+      <img [src]="product.pictureUrl" alt="{{ product.name }}" class="w-100" />
+    </div>
+    <div class="col-md-6">
+      <h2>{{ product.name }}</h2>
+      <span>{{ product.price | currency : "EGP" }}</span>
+      <div class="d-flex align-items-center mt-3">
+        <div
+          class="fa fa-minus-circle text-warning me-2"
+          style="font-size: 2em; cursor: pointer"
+        ></div>
+        <span>2</span>
+        <div
+          class="fa fa-plus-circle text-warning ms-2"
+          style="font-size: 2em; cursor: pointer"
+        ></div>
+
+        <button class="btn btn-outline-secondary mx-3">Add To Cart</button>
+      </div>
+      <div class="row">
+        <div class="col-md-12 mt-4">
+          <h3>Description</h3>
+          <p>{{ product.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

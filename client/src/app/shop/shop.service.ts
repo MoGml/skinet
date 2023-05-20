@@ -6,6 +6,7 @@ import { Product } from '../shared/models/product';
 import { Brand } from '../shared/models/brand';
 import { Type } from '../shared/models/type';
 import { ShopParams } from '../shared/models/shopParams';
+import { ProductDetails } from '../shared/models/productDetails';
 
 @Injectable({
   providedIn: 'root',
@@ -41,5 +42,9 @@ export class ShopService {
 
   getTypes() {
     return this.http.get<Type[]>(this.baseUrl + 'Products/types');
+  }
+
+  getProductDetails(id: number) {
+    return this.http.get<ProductDetails>(this.baseUrl + 'Products/' + id);
   }
 }

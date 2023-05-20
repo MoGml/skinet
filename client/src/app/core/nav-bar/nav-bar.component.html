@@ -2,7 +2,11 @@
   <div class="container d-flex justify-content-center">
     <div class="brand ms-1">
       <a class="navbar-brand"
-        ><img src="../../assets/images/logo.png" class="w-50" alt="logo"
+        ><img
+          src="../../assets/images/logo.png"
+          class="w-50"
+          alt="logo"
+          routerLink="/"
       /></a>
       <button
         class="navbar-toggler"
@@ -22,17 +26,28 @@
     >
       <ul class="navbar-nav mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page">Features</a>
+          <a
+            class="nav-link"
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Home</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link">Ensda</a>
+          <a class="nav-link" routerLink="/shop" routerLinkActive="active"
+            >Shop</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link">Link</a>
+          <a
+            class="nav-link"
+            routerLink="/test-errors"
+            routerLinkActive="active"
+            >Test Errors</a
+          >
         </li>
-        <li class="nav-item">
-          <a class="nav-link">Link</a>
-        </li>
+
         <!-- <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
