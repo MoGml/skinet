@@ -1,0 +1,27 @@
+<div class="container"></div>
+
+<div class="bg-light px-4 py-3 fw-bold text-uppercase">Order Summary</div>
+
+<div class="py-4 px-4">
+  <p class="fst-italic mb-4">Shipping Will be Calculated</p>
+  <ul
+    class="list-unstyled mb-4"
+    *ngIf="basketService.basketTotal$ | async as basketTotal"
+  >
+    <li class="d-flex justify-content-between">
+      <strong class="text-muted"> Order SubTotal</strong>
+      <strong>{{ basketTotal.subTotal | currency : "EGP" }}</strong>
+    </li>
+    <hr />
+    <li class="d-flex justify-content-between my-2">
+      <strong class="text-muted"> Shipping </strong>
+      <strong>{{ basketTotal.shipping | currency : "EGP" }}</strong>
+    </li>
+    <hr />
+
+    <li class="d-flex justify-content-between">
+      <strong class="text-muted"> Total</strong>
+      <strong>{{ basketTotal.total | currency : "EGP" }}</strong>
+    </li>
+  </ul>
+</div>

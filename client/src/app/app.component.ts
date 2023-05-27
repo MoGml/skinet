@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Product } from './shared/models/product';
-import { Pagination } from './shared/models/pagination';
+import { BasketService } from './basket/basket.service';
 
 @Component({
   selector: 'app-root',
@@ -10,20 +9,15 @@ import { Pagination } from './shared/models/pagination';
 })
 export class AppComponent implements OnInit {
   title = 'skinet';
-  products: Product[] = [];
 
-  constructor(private http: HttpClient) {}
+  productCount: number = 0;
+
+  constructor(private baskerService: BasketService) {}
+
   ngOnInit(): void {
-    this.http
-      .get<Pagination<Product[]>>(
-        'https://localhost:5001/api/Products?pageSize=50'
-      )
-      .subscribe({
-        next: (response) => (this.products = response.data),
-        error: (err) => console.error(err),
-        complete: () => {
-          console.log('Completed');
-        },
-      });
+    // const baskeId = localStorage.getItem('basketId');
+    // if (baskeId) {
+    //   this.baskerService.getBasket(baskeId);
+    // }
   }
 }

@@ -6,7 +6,11 @@
       class="img-fluid bg-info"
     />
     <div class="d-flex justify-content-center align-items-center hover-overlay">
-      <button type="button" class="btn btn-primary me-2">
+      <button
+        type="button"
+        (click)="addItem(product)"
+        class="btn btn-primary me-2"
+      >
         <i class="fa fa-shopping-cart"></i>
       </button>
       <button
