@@ -10,7 +10,7 @@ namespace API.Extensions
 {
     public static class ApplicationServicesExtension
     {
-        public static IServiceCollection AddApplicationServiceCollection(this IServiceCollection services,
+        public static IServiceCollection AddApplicationService(this IServiceCollection services,
             IConfiguration config)
         {
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -33,6 +33,8 @@ namespace API.Extensions
             //Register Services
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IBasketRepository, BasketRepository>();
+
+            services.AddScoped<ITokenService, TokenService>();
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
